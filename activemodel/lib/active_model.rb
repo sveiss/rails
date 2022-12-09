@@ -64,6 +64,14 @@ module ActiveModel
     autoload :ValidationError, "active_model/validations"
   end
 
+  module AttributeMethods
+    extend ActiveSupport::Autoload
+
+    eager_autoload do
+      autoload :BeforeTypeCast
+    end
+  end
+
   module Serializers
     extend ActiveSupport::Autoload
 

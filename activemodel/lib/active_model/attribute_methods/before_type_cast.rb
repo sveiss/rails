@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-module ActiveRecord
+module ActiveModel
   module AttributeMethods
     # = Active Record Attribute Methods Before Type Cast
     #
-    # ActiveRecord::AttributeMethods::BeforeTypeCast provides a way to
+    # ActiveModel::AttributeMethods::BeforeTypeCast provides a way to
     # read the value of the attributes before typecasting and deserialization.
     #
-    #   class Task < ActiveRecord::Base
+    #   class Task
+    #     include ActiveModel::API
+    #     include ActiveModel::AttributeMethods
     #   end
     #
     #   task = Task.new(id: '1', completed_on: '2012-10-21')
@@ -36,7 +38,9 @@ module ActiveRecord
       # Returns the value of the attribute identified by +attr_name+ before
       # typecasting and deserialization.
       #
-      #   class Task < ActiveRecord::Base
+      #   class Task
+      #     include ActiveModel::API
+      #     include ActiveModel::AttributeMethods
       #   end
       #
       #   task = Task.new(id: '1', completed_on: '2012-10-21')
@@ -55,7 +59,10 @@ module ActiveRecord
       # Returns the value of the attribute identified by +attr_name+ after
       # serialization.
       #
-      #   class Book < ActiveRecord::Base
+      #   class Book
+      #     include ActiveModel::API
+      #     include ActiveModel::AttributeMethods
+      #
       #     enum status: { draft: 1, published: 2 }
       #   end
       #
@@ -71,7 +78,9 @@ module ActiveRecord
 
       # Returns a hash of attributes before typecasting and deserialization.
       #
-      #   class Task < ActiveRecord::Base
+      #   class Task
+      #     include ActiveModel::API
+      #     include ActiveModel::AttributeMethods
       #   end
       #
       #   task = Task.new(title: nil, is_done: true, completed_on: '2012-10-21')
